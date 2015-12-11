@@ -11,12 +11,12 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{This utilities with CLI (Command Line Interface) for normalize indentation in your source code.}
   spec.description   = %q{This gem use the 'iparser'gem as a parser engine. For details gem, use '--help' option.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/gera-gas/indent_code"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = "indent"
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
