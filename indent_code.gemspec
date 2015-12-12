@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["anton"]
   spec.email         = ["gera_box@mail.ru"]
 
-  spec.summary       = %q{This utilities with CLI (Command Line Interface) for normalize indentation in your source code.}
-  spec.description   = %q{This gem use the 'iparser'gem as a parser engine. For details gem, use '--help' option.}
+  spec.summary       = %q{This utilities with CLI (Command Line Interface) for normalize indentation in your source code. This gem use the 'iparser' gem as a parser engine.}
+  spec.description   = %q{}
   spec.homepage      = "https://github.com/gera-gas/indent_code"
   spec.license       = "MIT"
 

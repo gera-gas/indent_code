@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
 For details use option `-h` or `--help`.
+
 File for normalize 'test.c':
 ```
  #include <stdlib.h>
@@ -40,14 +41,6 @@ File for normalize 'test.c':
       }
 }
 
-#if EDEF
-//Some text - 1.
-# if 0
-This is deleted text.
-# endif
-//Some text - 2.
-#endif
-
 /**
  * Test function - 2. {
  */
@@ -63,7 +56,6 @@ void test2 ( void )
 }
 return a;
 }
-
 ```
 
 Run `indent` gem:
@@ -89,14 +81,6 @@ void test1 ( void )
     }
 }
 
-#if EDEF
-//Some text - 1.
-# if 0
-This is deleted text.
-# endif
-//Some text - 2.
-#endif
-
 /**
  * Test function - 2. {
  */
@@ -114,49 +98,39 @@ void test2 ( void )
 }
 ```
 
-Also you can set indent size and clean source code, by used `-c` option.
-This option deleted code blocks framed is a: `#if 0` ... `#endif`.
+Also you can set indent size `-i 4` (set TAB size = 4 chars) and clean source code, by used `-c` option.
+Clean option deleted code blocks framed is a: `#if 0` ... `#endif`.
 
     $ indent test.c -c
 ```
 #include <stdlib.h>
 
-///Test function - 1. }
-void test1 ( void )
-{
-    switch(c) {
-        case 4:
-        c = "** \" { \" ";
-        break;
-    }
-    
-    if (c)
-    {
-        return 1;
-    }
-}
+#if EDEF
+//Some text - 1.
+# if 0
+Deleted text.
+# endif
+//Some text - 2.
+#endif
+```
+
+We get follow result after clean:
+```
+#include <stdlib.h>
 
 #if EDEF
 //Some text - 1.
 //Some text - 2.
 #endif
-
-/**
- * Test function - 2. {
- */
-void test2 ( void )
-{
-    int a;
-    /*
-     * Simple comment block.
-     * Check align into comments.
-     */
-    {
-        a++;
-    }
-    return a;
-}
 ```
+
+## Patch
+
+Details information for each patch.
+
+##### 0.1.1
+* Corrected describe information.
+
 
 ## Development
 
