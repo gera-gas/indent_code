@@ -46,13 +46,13 @@ File for normalize 'test.c':
  */
 void test2 ( void )
 {
-  int a;
+  int a = '{';
   /*
 * Simple comment block.
         * Check align into comments.
 	*/
 {
-  a++;
+  a = '\'';
 }
 return a;
 }
@@ -86,13 +86,13 @@ void test1 ( void )
  */
 void test2 ( void )
 {
-    int a;
+    int a = '{';
     /*
      * Simple comment block.
      * Check align into comments.
      */
     {
-        a++;
+        a = '\'';
     }
     return a;
 }
@@ -127,6 +127,9 @@ We get follow result after clean:
 ## Patch
 
 Details information for each patch.
+
+##### 0.1.2
+* Fixed bug, don't analyses chars declaration syntax.
 
 ##### 0.1.1
 * Corrected describe information.

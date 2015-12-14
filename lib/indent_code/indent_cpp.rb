@@ -10,6 +10,7 @@ module IndentCode
 
       @st_cline  = Iparser::State.new('comment-line')
       @st_cblock = Iparser::State.new('comment-block')
+      @st_char   = Iparser::State.new('char')
       @st_string = Iparser::State.new('string')
       @st_screen = Iparser::State.new('screen')
       @st_scope  = Iparser::State.new('scope')
@@ -17,6 +18,7 @@ module IndentCode
       @parser.addstate @st_scope
       @parser.addstate @st_cline
       @parser.addstate @st_cblock
+      @parser.addstate @st_char
       @parser.addstate @st_string
       @parser.addstate @st_screen
 
@@ -30,9 +32,14 @@ module IndentCode
       @st_cblock.entry << '*'
       @st_cblock.leave << '*'
       @st_cblock.leave << '/'
-
+      
       @st_cblock.handler( method( :cblock_handler ) )
       @st_cblock.fini( method( :cblock_fini ) )
+
+      # Setting char state.
+      @st_char.entry << "'"
+      @st_char.leave << "'"
+      @st_char.branches << @parser.state_index( @st_screen )
 
       # Setting string state.
       @st_string.entry << '"'
@@ -50,6 +57,7 @@ module IndentCode
       @st_scope.branches << @parser.state_index( @st_cline )
       @st_scope.branches << @parser.state_index( @st_cblock )
       @st_scope.branches << @parser.state_index( @st_string )
+      @st_scope.branches << @parser.state_index( @st_char )
 
       @st_scope.init( method( :scope_init ) )
       @st_scope.fini( method( :scope_fini ) )
