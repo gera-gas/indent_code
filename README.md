@@ -128,6 +128,9 @@ We get follow result after clean:
 
 Details information for each patch.
 
+##### 0.1.4
+* Fixed bug, don't work clean option after updates.
+
 ##### 0.1.3
 * Fixed bug, don't work clean option after updates.
 

@@ -23,7 +23,7 @@ module IndentCode
       @parser.addstate @st_screen
       
       # Setting idle state.
-      @st_idle.ignore << ' '
+      @st_idle.ignore[:all] << ' '
       @st_idle.branches << @parser.state_index( @st_cpp )
       @st_idle.branches << @parser.state_index( @st_cline )
       @st_idle.branches << @parser.state_index( @st_cblock )
