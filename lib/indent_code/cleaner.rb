@@ -60,7 +60,7 @@ module IndentCode
       @st_cpp.leave << 'd'
       @st_cpp.leave << 'i'
       @st_cpp.leave << 'f'
-      @st_cpp.ignore << ' '
+      @st_cpp.ignore[:all] << ' '
       @st_cpp.branches << @parser.state_index( @st_cline )
       @st_cpp.branches << @parser.state_index( @st_cblock )
       @st_cpp.branches << @parser.state_index( @st_string )
