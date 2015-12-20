@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+You can use this utilities for alignment code for any language,
+where block syntax is defined as: '{' ... '}', C,C++,Java ... etc.
 For details, use option `-h` or `--help`.
 
 File for normalize 'test.c':
@@ -127,6 +129,9 @@ We get follow result after clean:
 ## Patch
 
 Details information for each patch.
+
+##### 0.1.5
+* Fixed bug, incorrectly scan syntax of preprocessor into cleaner procedures.
 
 ##### 0.1.4
 * Fixed bug, don't work clean option after updates.
